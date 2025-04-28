@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.gradient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: gradientAnimation 20s linear infinite;
+}
+
+@keyframes gradientAnimation {
+
+    0%,
+    100% {
+        background: radial-gradient(ellipse at bottom, #ff7e5f, #feb47b, #8c4fb6);
+    }
+
+    25% {
+        background: radial-gradient(ellipse at bottom, #feb47b, #8c4fb6, #3f7fe7);
+    }
+
+    50% {
+        background: radial-gradient(ellipse at bottom, #8c4fb6, #3f7fe7, #44c2fd);
+    }
+
+    75% {
+        background: radial-gradient(ellipse at bottom, #3f7fe7, #44c2fd, #4cc2b0);
+    }
+}</style>    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dynamic Gradient Background</title>
+</head>
+
+<body>
+    <div class="gradient-background"></div>
+</body>
+
+</html>
