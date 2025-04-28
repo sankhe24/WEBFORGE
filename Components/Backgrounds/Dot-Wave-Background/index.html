@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #431c5d, #2c0756);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25px);
+    grid-template-rows: repeat(auto-fill, 25px);
+    gap: 5px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color:aqua;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.dot.hovered {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.dot.bulge {
+    transform: scale(2);
+}
+
+.dot.bulge-nearby {
+    transform: scale(1.5);
+}
+
+.dot.bulge-far {
+    transform: scale(1.2);
+}
+</style>    <title>Dot Wave Background</title>
+</head>
+<body>
+    <div class="dot-container">
+        <!-- JavaScript will generate dots here -->
+    </div>
+    <script type="text/javascript">document.addEventListener("DOMContentLoaded", function() {
+        const container = document.querySelector(".dot-container");
+        const numRows = Math.ceil(window.innerHeight / 30);
+        const numCols = Math.ceil(window.innerWidth / 30);
+    
+        const dots = [];
+    
+        // Create the dots and store their references
+        for (let i = 0; i < numRows; i++) {
+            const row = [];
+            for (let j = 0; j < numCols; j++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                container.appendChild(dot);
+                row.push(dot);
+            }
+            dots.push(row);
+        }
+    
+        // Function to calculate distance between two points
+        function distance(x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        }
+    
+        container.addEventListener('mousemove', function(event) {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+    
+            dots.forEach((row, i) => {
+                row.forEach((dot, j) => {
+                    const dotX = dot.offsetLeft + dot.offsetWidth / 2;
+                    const dotY = dot.offsetTop + dot.offsetHeight / 2;
+    
+                    const dist = distance(mouseX, mouseY, dotX, dotY);
+    
+                    const maxDist = Math.min(window.innerWidth, window.innerHeight) / 5; // Adjust the divisor for smaller range
+                    const scale = 1 + 0.2 * Math.cos(Math.PI * dist / maxDist);
+    
+                    dot.style.transform = `scale(${scale})`;
+                });
+            });
+        });
+    
+        container.addEventListener('mouseout', function() {
+            dots.forEach(row => {
+                row.forEach(dot => {
+                    dot.style.transform = 'scale(1)';
+                });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
