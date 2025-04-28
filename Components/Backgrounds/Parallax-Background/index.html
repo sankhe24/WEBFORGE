@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background: #f9f9f9;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    .parallax {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    #text {
+        font-size: 5em;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .parallax img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .sec {
+        height: 800px;
+        position: relative;
+        background: #003329;
+        padding: 100px;
+    }
+    
+    .sec h2 {
+        text-align: center;
+        font-size: 3em;
+        color: #fff;
+        /* margin-bottom: 10px;
+        margin-top: 100px; */
+        top: 50%;
+        left: 50%;
+    }
+    
+    @media (max-width:1000px) {
+        .parallax img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+    
+        }
+    }
+    
+    @media (max-width:500px) {
+        #text {
+            font-size: 4em;
+        }
+    
+        .sec h2 {
+            font-size: 2.5em;
+    
+        }
+    }</style>    <title>Parallax Background</title>
+</head>
+
+<body>
+    <div class="parallax">
+
+        <img src="./images/hill1.png" id="hill1">
+        <img src="./images/hill2.png" id="hill2">
+        <img src="./images/hill3.png" id="hill3">
+        <img src="./images/hill4.png" id="hill4">
+        <img src="./images/hill5.png" id="hill5">
+        <img src="./images/tree.png" id="tree">
+        <h2 id="text">Parallax Website</h2>
+        <img src="./images/leaf.png" id="leaf">
+
+        <img src="./images/plant.png" id="plant">
+
+    </div>
+
+    <section class="sec">
+        <h2>Welcome to the Parallax Scrolling Background</h2>
+    </section>
+
+    <script type="text/javascript">'use strict'
+
+let text = document.getElementById('text');
+let leaf = document.getElementById('leaf');
+let hill1 = document.getElementById('hill1');
+let hill4 = document.getElementById('hill4');
+let hill5 = document.getElementById('hill5');
+
+
+window.addEventListener('scroll', () => {
+    let value = window.scrollY;
+
+    text.style.marginTop = value * 1 + 'px';
+    leaf.style.top = value * -1.5 + 'px';
+    leaf.style.left = value * 1.5 + 'px';
+    hill5.style.left = value * 1.5 + 'px';
+    hill4.style.left = value * -1.5 + 'px';
+    hill1.style.top = value * 0.8 + 'px';
+
+});</script>
+</body>
+
+</html>
