@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    button {
+        outline: none;
+    }
+    
+    .accordion_container {
+        background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtkNSZj-jZoeDkIu9qlXXJ94th6rdzDxPlgmfj2xtv8dlbbQHYpOYmrjOYGSHN-ZeRIYRT4cf1JN26SFdublSXeCGTtS9outL38VzGbZwnBI9C-Xc1V7Yj1vYGASbnFUgwNLl8-FtHvaDkwQ6-gpAPhCDBERClKHtNFItXgtAsob7enffyrXPoK0GVdw/w640-h360/v1-Minimal-view-wallpaper-pc-8K.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        padding: 0;
+    }
+    
+    .accordion_container .container {
+        min-height: 100px;
+        max-width: 800px;
+        width: 100%;
+        margin: auto;
+    }
+    
+    .accordion_container .container .accordion {
+        border: 2px outset #fff8;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    
+    .accordion_container .container .accordion.active {
+        box-shadow: 0 4px 15px #0005;
+    }
+    
+    
+    .accordion_container .container .accordion .header {
+        font-weight: 600;
+        display: block;
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        background-image: linear-gradient(45deg, #ffffffa8, #ffffff9f);
+        border: none;
+        padding: 15px;
+        color: #444;
+        font-size: 18px;
+        border-bottom: 2px solid #fff3;
+        box-shadow: 0 2px 5px #0005;
+        cursor: pointer;
+        position: relative;
+        backdrop-filter: blur(15px);
+    }
+    
+    .accordion_container .container .accordion.active .header,
+    .accordion_container .container .accordion .header:hover {
+        background-image: linear-gradient(-45deg, #ffffffa8, #ffffff9f);
+    }
+    
+    .accordion_container .container .accordion .header .icon {
+        display: inline-block;
+        width: 15px;
+        height: 2px;
+        background-color: #4d4d4dd5;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        transition: 0.3s;
+    }
+    
+    .accordion_container .container .accordion .header .icon::before {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        position: absolute;
+        transform: rotatez(90deg);
+    }
+    
+    .accordion_container .container .accordion.active .header .icon {
+        transform: rotateZ(45deg) translateY(-50%);
+        background-color: #eb2f00;
+    }
+    
+    .accordion_container .container .accordion .body {
+        background-image: linear-gradient(45deg, #ffffff96, #ffffff4f);
+        padding: 0 15px;
+        backdrop-filter: blur(15px);
+        color: #161616;
+        font-size: 18px;
+        line-height: 1.5;
+        height: 0px;
+        overflow: hidden;
+        transition: 0.5s cubic-bezier(0.42, 0.59, 0.49, 1.29);
+    }
+    
+    .accordion_container .container .accordion.active .body {
+        padding: 15px;
+    }
+    </style>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Glassmorphism Accordion</title>
+</head>
+<body>
+    <div class="accordion_container">
+        <div class="container">
+            <div class="accordion">
+                <button class="header">
+                    Collapsible Group Item #1
+                    <i class="icon"></i>
+                </button>
+                <div class="body">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,
+                    by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of
+                    Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                    generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the
+                    Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to
+                    generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition,
+                    injected humour, or non-characteristic words etc.
+                </div>
+            </div>
+            <div class="accordion">
+                <button class="header">
+                    Collapsible Group Item #2
+                    <i class="icon"></i>
+                </button>
+                <div class="body">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+            </div>
+            <div class="accordion">
+                <button class="header">
+                    Collapsible Group Item #3
+                    <i class="icon"></i>
+                </button>
+                <div class="body">
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+                    layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+                    'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
+                    editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                    still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                    (injected humour and the like).
+                </div>
+            </div>
+            <div class="accordion">
+                <button class="header">
+                    Collapsible Group Item #4
+                    <i class="icon"></i>
+                </button>
+                <div class="body">
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
+                    from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+                    looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of
+                    the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+                    of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
+                    on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+                    amet..", comes from a line in section 1.10.32.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">let accordion_btns = document.querySelectorAll('.accordion_container .accordion .header'),
+        accordion_bodys = document.querySelectorAll('.accordion_container .accordion .body');
+    
+    if (accordion_btns && accordion_bodys) {
+        accordion_btns = Array.isArray(accordion_btns) ? accordion_btns : Object.values(accordion_btns);
+        accordion_btns.forEach(accordion_btn => {
+            accordion_btn.addEventListener('click', function () {
+                process_accordion(this);
+            });
+        });
+    
+        function process_accordion(x) {
+            set_height_0();
+    
+            let next_sibling = x.nextElementSibling;
+            if (next_sibling.offsetHeight > 0) {
+                next_sibling.style.height = '0px';
+                x.closest('.accordion').classList.remove('active');
+            } else {
+                next_sibling.style.height = next_sibling.scrollHeight + 30 + 'px';
+                x.closest('.accordion').classList.add('active');
+            }
+        }
+    
+        function set_height_0() {
+            accordion_bodys = Array.isArray(accordion_bodys) ? accordion_bodys : Object.values(accordion_bodys);
+            accordion_bodys.forEach(accordion_body => {
+                accordion_body.style.height = '0px';
+                accordion_body.closest('.accordion').classList.remove('active');
+            });
+        }
+    }</script>
+</body>
+
+</html>
